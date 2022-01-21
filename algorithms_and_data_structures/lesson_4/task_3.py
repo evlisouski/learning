@@ -1,4 +1,5 @@
 import cProfile
+import functools
 
 
 def test_fib(func):
@@ -8,6 +9,7 @@ def test_fib(func):
         print(f'Test {i} OK')
 
 
+@functools.lru_cache()  # Использовать технология меморизации
 def fib(n):
     if n < 2:
         return n
