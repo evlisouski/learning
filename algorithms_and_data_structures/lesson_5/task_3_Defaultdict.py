@@ -18,9 +18,16 @@ for k, v in list_1:
 
 print(c)
 
-#использование set в качестве default_factory позволяет сохранить только уникальные значения
+# использование set в качестве default_factory позволяет сохранить только уникальные значения
 list_2 = [('cat', 1), ('dog', 5), ('cat', 2), ('cat', 2), ('dog', 1), ('dog', 5)]
 d = defaultdict(set)
 for k, v in list_2:
     d[k].add(v)
 print(d)
+
+# использование lambda функции в качестве default_factory для defaultdict
+f = defaultdict(lambda: 'unknown')
+f.update(rex='dog', tomas='cat')
+print(f)
+print(f['rex'])
+print(f['jerry'])
