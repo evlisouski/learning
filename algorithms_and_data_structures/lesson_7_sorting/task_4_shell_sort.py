@@ -12,16 +12,16 @@ def shell_sort(array):
 
     def new_increment(array):
 
-        inc = [1, 4, 10, 23, 57, 132, 301, 701, 1750]
+        inc = [1, 4, 10, 23, 57, 132, 301, 701, 1750]  # длина шаков
 
-        while len(array) <= inc[-1]:
+        while len(array) <= inc[-1]:  # проверка дины массива и исключение из inc шагов которые больше длины массива
             inc.pop()
 
-        while len(inc) > 0:
+        while len(inc) > 0:  # пока в списке есть последнее значение возвращаем значение
             yield inc.pop()
 
-    for increment in new_increment(array):
-        for i in range(increment, len(array)):
+    for increment in new_increment(array):  # increment - шаг с которым будем обходить массив для сортировки
+        for i in range(increment, len(array)):  #
             for j in range(i, increment - 1, -increment):
                 if array[j - increment] <= array[j]:
                     break
@@ -31,5 +31,3 @@ def shell_sort(array):
 
 shell_sort(array)
 print(array)
-
-
