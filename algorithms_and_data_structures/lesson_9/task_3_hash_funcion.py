@@ -22,18 +22,20 @@ my_append(c)
 print(4625 == 4 * 10 ** 3 + 6 * 10 ** 2 + 2 * 10 ** 1 + 5 * 10 ** 0)
 
 
-
 # пример расчета хеша для слова с использованием следующей хеш функции
 # word_hash += (ord(char) - ord('a') + 1) * letter ** i
 def my_index(value):
     letter = 26
     word_hash = 0
+    # ограничить размер хеша 10000 комбинаций
+    size = 10000
 
     # i - индекс буквы, char - текущий символ
     for i, char in enumerate(value):
         # для каждого символа высчитываем хеш и приболяем у предыдущему значению. В итоге получаем хеш сумму символов
         word_hash += (ord(char) - ord('a') + 1) * letter ** i
-    return word_hash
+        # ограничить размер хеша 10000 комбинаций
+    return word_hash % size
 
 
 print(my_index(a))
