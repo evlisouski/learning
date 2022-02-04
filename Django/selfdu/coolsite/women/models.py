@@ -20,7 +20,7 @@ class Women(models.Model):
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk})
 
-    # вложенный класс, который используется admin панелью для еенастройки
+    # вложенный класс, который используется admin панелью для ее настройки
     class Meta:
         verbose_name = "Известные женщины"
         verbose_name_plural = "Известные женщины"
@@ -29,7 +29,7 @@ class Women(models.Model):
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=100, db_index=True)
+    name = models.CharField(max_length=100, db_index=True, verbose_name="Категория")
 
 # вернуть имя катерогии
     def __str__(self):
@@ -37,3 +37,10 @@ class Category(models.Model):
 
     def get_absolute_url(self):
         return reverse('category', kwargs={'cat_id': self.pk})
+
+    # вложенный класс, который используется admin панелью для ее настройки
+    class Meta:
+        verbose_name = "Категории"
+        verbose_name_plural = "Категория"
+        # сортировка категорий
+        ordering = ['id']
