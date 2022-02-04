@@ -16,9 +16,16 @@ class Women(models.Model):
     def __str__(self):
         return self.title
 
-    # формирует маршрут к посту
+    # формирует маршрут к посту, а также позволяет через админ панель получать доступ в виде GUI
     def get_absolute_url(self):
         return reverse('post', kwargs={'post_id': self.pk})
+
+    # вложенный класс, который используется admin панелью для еенастройки
+    class Meta:
+        verbose_name = "Известные женщины"
+        verbose_name_plural = "Известные женщины"
+        # сортировка статей
+        ordering = ['time_create', 'title']
 
 
 class Category(models.Model):
