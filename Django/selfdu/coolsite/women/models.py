@@ -12,14 +12,14 @@ class Women(models.Model):
     is_published = models.BooleanField(default=True, verbose_name="Публикация")
     # внешний ключ для связи один к многим
     # ссылка в виде str 'Category' передается поскольку модель Category определяется после Women
-    cat = models.ForeignKey('Category', on_delete=models.PROTECT, null=True, verbose_name="Категория")
+    cat = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name="Категория")
 
     def __str__(self):
         return self.title
 
     # формирует маршрут к посту, а также позволяет через админ панель получать доступ в виде GUI
     def get_absolute_url(self):
-        return reverse('post', kwargs={'post_id': self.pk})
+        return reverse('post', kwargs={'post_slug': self.slug})
 
     # вложенный класс, который используется admin панелью для ее настройки
     class Meta:
@@ -31,6 +31,7 @@ class Women(models.Model):
 
 class Category(models.Model):
     name = models.CharField(max_length=100, db_index=True, verbose_name="Категория")
+    slug = models.SlugField(max_length=255, unique=True, db_index=True, verbose_name="URL")
 
 # вернуть имя катерогии
     def __str__(self):
