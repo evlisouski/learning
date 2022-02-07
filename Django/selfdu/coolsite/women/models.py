@@ -38,7 +38,7 @@ class Category(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('category', kwargs={'cat_id': self.pk})
+        return reverse('category', kwargs={'cat_slug': self.slug})
 
     # вложенный класс, который используется admin панелью для ее настройки
     class Meta:

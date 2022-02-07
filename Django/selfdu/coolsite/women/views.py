@@ -1,6 +1,6 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, get_object_or_404, redirect
-from django.views.generic import ListView
+from django.views.generic import ListView, DeleteView, CreateView
 
 from .forms import *
 from .models import *
@@ -32,6 +32,9 @@ class WomenHome(ListView):
         context['cat_selected'] = 0
         return context
 
+    # специальный метод, который отвечает за то, что нужно прочитать из модели model
+    def get_queryset(self):
+        return Women.objects.filter(is_published=True)
 
 # def index(request):
 #     posts = Women.objects.all()
@@ -50,24 +53,37 @@ def about(request):
     return render(request, 'women/about.html', {'menu': menu, 'title': 'О сайте'})
 
 
-def addpage(request):
-    if request.method == 'POST':
-        form = AddPostForm(request.POST, request.FILES)
-        if form.is_valid():
-            # print(form.cleaned_data)
-            # для формы связанной с моделью
-            form.save()
-            return redirect('home')
-            # для формы не связанной с моделью
-            # try:
-            # Women.objects.create(**form.cleaned_data)
-            # return redirect('home')
-            # except:
-            #     form.add_error(None, 'Ошибка добавления поста')
+# def addpage(request):
+#     if request.method == 'POST':
+#         form = AddPostForm(request.POST, request.FILES)
+#         if form.is_valid():
+#             # print(form.cleaned_data)
+#             # для формы связанной с моделью
+#             form.save()
+#             return redirect('home')
+#             # для формы не связанной с моделью
+#             # try:
+#             # Women.objects.create(**form.cleaned_data)
+#             # return redirect('home')
+#             # except:
+#             #     form.add_error(None, 'Ошибка добавления поста')
+#
+#     else:
+#         form = AddPostForm()
+#     return render(request, 'women/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи'})
 
-    else:
-        form = AddPostForm()
-    return render(request, 'women/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи'})
+
+class AddPage(CreateView):
+    # артибут form_class указывает на класс AddPostForm
+    form_class = AddPostForm
+    template_name = 'women/addpage.html'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = 'Добавление статьи'
+        context['menu'] = menu
+        return context
+
 
 
 def contact(request):
@@ -82,29 +98,73 @@ def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Страница не найдена</h1>')
 
 
-def show_post(request, post_slug):
-    post = get_object_or_404(Women, slug=post_slug)
+# def show_post(request, post_slug):
+#     post = get_object_or_404(Women, slug=post_slug)
+#
+#     context = {
+#         'post': post,
+#         'menu': menu,
+#         'title': post.title,
+#         'cat_selected': post.cat_id,
+#     }
+#
+#     return render(request, 'women/post.html', context=context)
 
-    context = {
-        'post': post,
-        'menu': menu,
-        'title': post.title,
-        'cat_selected': post.cat_id,
-    }
 
-    return render(request, 'women/post.html', context=context)
+class ShowPost(DeleteView):
+    model = Women
+    template_name = 'women/post.html'
+    # определим slug, который необходимо использовать из urls
+    slug_url_kwarg = 'post_slug'
+    # название списка в шаблонах
+    context_object_name = 'post'
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['title'] = context['post']
+        context['menu'] = menu
+        return context
+
+class WomenCategory(ListView):
+    # брать данные из БД на основании полей следующей модели
+    model = Women
+    # использовать следующий шаблон
+    template_name = 'women/index.html'
+    # название списка в шаблонах
+    context_object_name = 'posts'
+    # если в списке нет не одной записи, то генерируем 404
+    allow_empty = False
+
+    # extra_context = {'title': 'Главная страница'}
+
+    # метод по slug определяет какие данные вернуть
+    def get_queryset(self):
+        # через словарь kwargs, который содержит все параметры, обращаемся к параметру 'cat_slug'
+        # выбираем все записи которые совпадают с cat__slug и опубликованы is_published
+        return Women.objects.filter(cat__slug=self.kwargs['cat_slug'], is_published=True)
+
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # взять все данные контекста из базового класса ListView
+        context = super().get_context_data(**kwargs)
+        # добавить переменную 'menu' в context
+        context['menu'] = menu
+        context['title'] = "Категория - " + str(context['posts'][0].cat)
+        context['cat_selected'] = context['posts'][0].cat_id
+        return context
 
 
-def show_category(request, cat_id):
-    posts = Women.objects.filter(cat_id=cat_id)
 
-    if len(posts) == 0:
-        raise Http404()
 
-    context = {
-        'posts': posts,
-        'menu': menu,
-        'title': "Отображение по рубрикам",
-        'cat_selected': cat_id,
-    }
-    return render(request, 'women/index.html', context=context)
+# def show_category(request, cat_id):
+#     posts = Women.objects.filter(cat_id=cat_id)
+#
+#     if len(posts) == 0:
+#         raise Http404()
+#
+#     context = {
+#         'posts': posts,
+#         'menu': menu,
+#         'title': "Отображение по рубрикам",
+#         'cat_selected': cat_id,
+#     }
+#     return render(request, 'women/index.html', context=context)
