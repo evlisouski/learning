@@ -30,14 +30,18 @@ def about(request):
 
 def addpage(request):
     if request.method == 'POST':
-        form = AddPostForm(request.POST)
+        form = AddPostForm(request.POST, request.FILES)
         if form.is_valid():
-            #print(form.cleaned_data)
-            try:
-                Women.objects.create(**form.cleaned_data)
-                return redirect('home')
-            except:
-                form.add_error(None, 'Ошибка добавления поста')
+            # print(form.cleaned_data)
+            # для формы связанной с моделью
+            form.save()
+            return redirect('home')
+            # для формы не связанной с моделью
+            # try:
+                # Women.objects.create(**form.cleaned_data)
+                # return redirect('home')
+            # except:
+            #     form.add_error(None, 'Ошибка добавления поста')
 
     else:
         form = AddPostForm()
@@ -67,7 +71,6 @@ def show_post(request, post_slug):
     }
 
     return render(request, 'women/post.html', context=context)
-
 
 
 def show_category(request, cat_id):
