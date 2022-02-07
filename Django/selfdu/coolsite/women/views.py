@@ -1,27 +1,49 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, get_object_or_404, redirect
+from django.views.generic import ListView
 
 from .forms import *
 from .models import *
 
-menu = [{'title': "О сайте", 'url_name': 'about'},
-        {'title': "Добавить статью", 'url_name': 'add_page'},
-        {'title': "Обратная связь", 'url_name': 'contact'},
-        {'title': "Войти", 'url_name': 'login'}
-        ]
+menu = [
+    {'title': "О сайте", 'url_name': 'about'},
+    {'title': "Добавить статью", 'url_name': 'add_page'},
+    {'title': "Обратная связь", 'url_name': 'contact'},
+    {'title': "Войти", 'url_name': 'login'}
+]
 
 
-def index(request):
-    posts = Women.objects.all()
+class WomenHome(ListView):
+    # брать данные из БД на основании полей следующей модели
+    model = Women
+    # использовать следующий шаблон
+    template_name = 'women/index.html'
+    # название списка в шаблонах
+    context_object_name = 'posts'
 
-    context = {
-        'posts': posts,
-        'menu': menu,
-        'title': 'Главная страница',
-        'cat_selected': 0,
-    }
+    # extra_context = {'title': 'Главная страница'}
 
-    return render(request, 'women/index.html', context=context)
+    def get_context_data(self, *, object_list=None, **kwargs):
+        # взять все данные контекста из базового класса
+        context = super().get_context_data(**kwargs)
+        # добавить переменную 'menu' в context
+        context['menu'] = menu
+        context['title'] = "Главная страница"
+        context['cat_selected'] = 0
+        return context
+
+
+# def index(request):
+#     posts = Women.objects.all()
+#
+#     context = {
+#         'posts': posts,
+#         'menu': menu,
+#         'title': 'Главная страница',
+#         'cat_selected': 0,
+#     }
+#
+#     return render(request, 'women/index.html', context=context)
 
 
 def about(request):
@@ -38,8 +60,8 @@ def addpage(request):
             return redirect('home')
             # для формы не связанной с моделью
             # try:
-                # Women.objects.create(**form.cleaned_data)
-                # return redirect('home')
+            # Women.objects.create(**form.cleaned_data)
+            # return redirect('home')
             # except:
             #     form.add_error(None, 'Ошибка добавления поста')
 
