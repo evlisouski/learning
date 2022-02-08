@@ -1,6 +1,9 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
+from django.urls import reverse_lazy
 from django.views.generic import ListView, DeleteView, CreateView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .forms import *
 from .utils import *
@@ -49,7 +52,9 @@ class WomenHome(DataMixin, ListView):
 #
 #     return render(request, 'women/index.html', context=context)
 
-
+# использование декоротора для функции представления, для ограничения доступа не авторизованым пользователям
+# для класов представления используется mixin LoginRequiredMixin
+# @login_required
 def about(request):
     return render(request, 'women/about.html', {'menu': menu, 'title': 'О сайте'})
 
@@ -74,10 +79,15 @@ def about(request):
 #     return render(request, 'women/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи'})
 
 
-class AddPage(DataMixin, CreateView):
+class AddPage(LoginRequiredMixin, DataMixin, CreateView):
     # артибут form_class указывает на класс AddPostForm
     form_class = AddPostForm
     template_name = 'women/addpage.html'
+    success_url = reverse_lazy('home')
+    # адрес перенаправления для не авторизированного пользователя
+    login_url = reverse_lazy('home')
+    # использование оповещения 403 (доступ запрещен) для не авторизованны пользователей
+    raise_exception = True
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
