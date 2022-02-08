@@ -40,7 +40,12 @@
             <table class="table-content" border=0 cellpadding="0" cellspacing="0">
                 <tr>
                     <!-- Sidebar слева -->
+
+{#                {% load cache %}#}
+
                     <td valign="top" class="left-chapters">
+{#                    {% cache 60 sidebar %}#}
+
                         {% getcats filter=1 %}
                         {# Использование отображения списка через теги с использованием фильтра #}
                         <ul id="leftchapters">
@@ -71,6 +76,7 @@
                                    target="_blank" rel="nofollow"></a>
                             </li>
                         </ul>
+{#                    {% endcache %}#}
                     </td>
                     <!-- Конец Sidebar'а -->
                     <td valign="top" class="content">

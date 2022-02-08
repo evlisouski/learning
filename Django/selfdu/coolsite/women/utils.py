@@ -1,4 +1,5 @@
 from django.db.models import Count
+from django.core.cache import cache
 
 from women.models import *
 
@@ -18,8 +19,14 @@ class DataMixin:
     def get_user_context(self, **kwargs):
         # формируем начальный словарь, который передается функции get_user_context
         context = kwargs
-        # формируем список категорий, который из-за count еще и содержить поле количество статей для каждой категории
-        cats = Category.objects.annotate(Count('women'))
+        # попытаться прочитать коллекцию cats из БД
+        cats = cache.get('cats')
+        # если нет в БД то
+        if not cats:
+            # формируем список категорий, который из-за count еще и содержить поле количество статей для каждой категории
+            cats = Category.objects.annotate(Count('women'))
+            # записываем в кеш на 60 сек
+            cache.set('cats', cats, 60)
 
         # делаем копию словаря menu и сохраняем копию в переменной user_menu
         user_menu = menu.copy()
