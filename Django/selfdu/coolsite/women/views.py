@@ -1,9 +1,9 @@
-from django.http import HttpResponse, HttpResponseNotFound, Http404
-from django.shortcuts import render, get_object_or_404, redirect
+from django.http import HttpResponse, HttpResponseNotFound
+from django.shortcuts import render
 from django.views.generic import ListView, DeleteView, CreateView
 
 from .forms import *
-from .models import *
+from .utils import *
 
 menu = [
     {'title': "О сайте", 'url_name': 'about'},
@@ -13,7 +13,7 @@ menu = [
 ]
 
 
-class WomenHome(ListView):
+class WomenHome(DataMixin, ListView):
     # брать данные из БД на основании полей следующей модели
     model = Women
     # использовать следующий шаблон
@@ -26,15 +26,16 @@ class WomenHome(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         # взять все данные контекста из базового класса
         context = super().get_context_data(**kwargs)
-        # добавить переменную 'menu' в context
-        context['menu'] = menu
-        context['title'] = "Главная страница"
-        context['cat_selected'] = 0
+        # ипользьуем метод из mixin
+        c_def = self.get_user_context(tittle='Главная страница')
+        # формируем context в виде словаря, объединив два словаря в виде списков
+        context = dict(list(context.items()) + list(c_def.items()))
         return context
 
     # специальный метод, который отвечает за то, что нужно прочитать из модели model
     def get_queryset(self):
         return Women.objects.filter(is_published=True)
+
 
 # def index(request):
 #     posts = Women.objects.all()
@@ -73,17 +74,18 @@ def about(request):
 #     return render(request, 'women/addpage.html', {'form': form, 'menu': menu, 'title': 'Добавление статьи'})
 
 
-class AddPage(CreateView):
+class AddPage(DataMixin, CreateView):
     # артибут form_class указывает на класс AddPostForm
     form_class = AddPostForm
     template_name = 'women/addpage.html'
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = 'Добавление статьи'
-        context['menu'] = menu
+        # ипользьуем метод из mixin
+        c_def = self.get_user_context(tittle='Добавление статьи')
+        # формируем context в виде словаря, объединив два словаря в виде списков
+        context = dict(list(context.items()) + list(c_def.items()))
         return context
-
 
 
 def contact(request):
@@ -111,7 +113,7 @@ def pageNotFound(request, exception):
 #     return render(request, 'women/post.html', context=context)
 
 
-class ShowPost(DeleteView):
+class ShowPost(DataMixin, DeleteView):
     model = Women
     template_name = 'women/post.html'
     # определим slug, который необходимо использовать из urls
@@ -121,11 +123,14 @@ class ShowPost(DeleteView):
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['title'] = context['post']
-        context['menu'] = menu
+        # ипользьуем метод из mixin
+        c_def = self.get_user_context(tittle=context['post'])
+        # формируем context в виде словаря, объединив два словаря в виде списков
+        context = dict(list(context.items()) + list(c_def.items()))
         return context
 
-class WomenCategory(ListView):
+
+class WomenCategory(DataMixin, ListView):
     # брать данные из БД на основании полей следующей модели
     model = Women
     # использовать следующий шаблон
@@ -146,14 +151,13 @@ class WomenCategory(ListView):
     def get_context_data(self, *, object_list=None, **kwargs):
         # взять все данные контекста из базового класса ListView
         context = super().get_context_data(**kwargs)
-        # добавить переменную 'menu' в context
-        context['menu'] = menu
-        context['title'] = "Категория - " + str(context['posts'][0].cat)
-        context['cat_selected'] = context['posts'][0].cat_id
+        # ипользьуем метод из mixin
+        c_def = self.get_user_context(tittle='Категория - ' + str(context['posts'][0].cat),
+                                      cat_selected=context['posts'][0].cat_id)
+        # формируем context в виде словаря, объединив два словаря в виде списков
+        context = dict(list(context.items()) + list(c_def.items()))
+
         return context
-
-
-
 
 # def show_category(request, cat_id):
 #     posts = Women.objects.filter(cat_id=cat_id)
