@@ -20,12 +20,9 @@
                             <div class="logo"></div>
                         </a></li>
                         {% for m in menu %}
-                            {% if not forloop.last %}
                                 <li><a href="{% url m.url_name %}">{{ m.title }}</a></li>
-                            {% else %}
-                                <li class="last"><a href="{% url m.url_name %}">{{ m.title }}</a></li>
-                            {% endif %}
                         {% endfor %}
+                        <li class="last"> <a href="{% url 'register' %}">Регистрация </a> | <a href="{% url 'login' %}">Войти</a> </li>
                     </ul>
                     <div class="clear"></div>
                 </div>
@@ -83,11 +80,11 @@
                                 <nav class="list-pages">
                                     <ul>
 
-{#кнопка на предыдущую страницу#}
-                                    {% if page_obj.has_previous %}
-                                        <li class="page-num">
-                                        <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
-                                        </li>
+                                        {#кнопка на предыдущую страницу#}
+                                        {% if page_obj.has_previous %}
+                                            <li class="page-num">
+                                                <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
+                                            </li>
                                         {% endif %}
 
 
@@ -105,13 +102,12 @@
 
 
 
-                                    {#кнопка на следующую страницу#}
-                                    {% if page_obj.has_next %}
-                                        <li class="page-num">
-                                        <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
-                                        </li>
+                                        {#кнопка на следующую страницу#}
+                                        {% if page_obj.has_next %}
+                                            <li class="page-num">
+                                                <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                                            </li>
                                         {% endif %}
-
 
 
                                     </ul>
