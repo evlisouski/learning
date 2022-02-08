@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.http import HttpResponse, HttpResponseNotFound
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -17,6 +18,8 @@ menu = [
 
 
 class WomenHome(DataMixin, ListView):
+    # атрибут paginate_by класса ListView отвечает за количество отображаемых записей на данной странице pagination
+    paginate_by = 3
     # брать данные из БД на основании полей следующей модели
     model = Women
     # использовать следующий шаблон
@@ -56,7 +59,12 @@ class WomenHome(DataMixin, ListView):
 # для класов представления используется mixin LoginRequiredMixin
 # @login_required
 def about(request):
-    return render(request, 'women/about.html', {'menu': menu, 'title': 'О сайте'})
+    contact_list = Women.objects.all()
+    paginator = Paginator(contact_list, 3)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'women/about.html', {'page_obj': page_obj,'menu': menu, 'title': 'О сайте'})
 
 
 # def addpage(request):
@@ -141,6 +149,8 @@ class ShowPost(DataMixin, DeleteView):
 
 
 class WomenCategory(DataMixin, ListView):
+    # атрибут paginate_by класса ListView отвечает за количество отображаемых записей на данной странице pagination
+    paginate_by = 3
     # брать данные из БД на основании полей следующей модели
     model = Women
     # использовать следующий шаблон
