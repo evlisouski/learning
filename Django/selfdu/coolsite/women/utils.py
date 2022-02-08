@@ -11,6 +11,9 @@ menu = [
 
 
 class DataMixin:
+    paginate_by = 3
+
+
     # метод создает контект для шаблона
     def get_user_context(self, **kwargs):
         # формируем начальный словарь, который передается функции get_user_context

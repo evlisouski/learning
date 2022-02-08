@@ -18,8 +18,7 @@ menu = [
 
 
 class WomenHome(DataMixin, ListView):
-    # атрибут paginate_by класса ListView отвечает за количество отображаемых записей на данной странице pagination
-    paginate_by = 3
+
     # брать данные из БД на основании полей следующей модели
     model = Women
     # использовать следующий шаблон
@@ -149,8 +148,7 @@ class ShowPost(DataMixin, DeleteView):
 
 
 class WomenCategory(DataMixin, ListView):
-    # атрибут paginate_by класса ListView отвечает за количество отображаемых записей на данной странице pagination
-    paginate_by = 3
+
     # брать данные из БД на основании полей следующей модели
     model = Women
     # использовать следующий шаблон
