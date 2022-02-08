@@ -77,21 +77,46 @@
                         <div class="content-text">
                             {% block content %}
                             {% endblock %}
-                            {# пагинация #}
-                            <nav class="list-pages">
-                                <ul>
-                                    {% for p in paginator.page_range %}
-                                        {% if page_obj.number == p %}
-                                        <li class="page-num page-num-selected">{{ p }}</li>
-                                        {% else %}
+                            {# Отображать пагинацию если есть другие has_other_pages страницы, больше одной #}
+                            {% if page_obj.has_other_pages %}
+                                {# пагинация #}
+                                <nav class="list-pages">
+                                    <ul>
+
+{#кнопка на предыдущую страницу#}
+                                    {% if page_obj.has_previous %}
                                         <li class="page-num">
-                                            <a href="?page={{ p }}">{{ p }}</a>
+                                        <a href="?page={{ page_obj.previous_page_number }}">&lt;</a>
                                         </li>
                                         {% endif %}
-                                    {% endfor %}
-                                </ul>
-                            </nav>
 
+
+
+                                        {% for p in paginator.page_range %}
+                                            {% if page_obj.number == p %}
+                                                <li class="page-num page-num-selected">{{ p }}</li>
+                                                {#отображать только две кнопки справа и слева текущей позиции#}
+                                            {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
+                                                <li class="page-num">
+                                                    <a href="?page={{ p }}">{{ p }}</a>
+                                                </li>
+                                            {% endif %}
+                                        {% endfor %}
+
+
+
+                                    {#кнопка на следующую страницу#}
+                                    {% if page_obj.has_next %}
+                                        <li class="page-num">
+                                        <a href="?page={{ page_obj.next_page_number }}">&gt;</a>
+                                        </li>
+                                        {% endif %}
+
+
+
+                                    </ul>
+                                </nav>
+                            {% endif %}
 
                         </div>
                         <!-- Конец блока контента -->
