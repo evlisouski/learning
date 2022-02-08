@@ -42,7 +42,7 @@ class WomenHome(DataMixin, ListView):
 
     # специальный метод, который отвечает за то, что нужно прочитать из модели model
     def get_queryset(self):
-        return Women.objects.filter(is_published=True)
+        return Women.objects.filter(is_published=True).select_related('cat')
 
 
 # def index(request):
@@ -167,14 +167,15 @@ class WomenCategory(DataMixin, ListView):
     def get_queryset(self):
         # через словарь kwargs, который содержит все параметры, обращаемся к параметру 'cat_slug'
         # выбираем все записи которые совпадают с cat__slug и опубликованы is_published
-        return Women.objects.filter(cat__slug=self.kwargs['cat_slug'], is_published=True)
+        return Women.objects.filter(cat__slug=self.kwargs['cat_slug'], is_published=True).select_related('cat')
 
     def get_context_data(self, *, object_list=None, **kwargs):
         # взять все данные контекста из базового класса ListView
         context = super().get_context_data(**kwargs)
+        c = Category.objects.get(slug=self.kwargs['cat_slug'])
         # ипользьуем метод из mixin
-        c_def = self.get_user_context(tittle='Категория - ' + str(context['posts'][0].cat),
-                                      cat_selected=context['posts'][0].cat_id)
+        c_def = self.get_user_context(tittle='Категория - ' + str(c.name),
+                                      cat_selected=c.pk)
         # формируем context в виде словаря, объединив два словаря в виде списков
         context = dict(list(context.items()) + list(c_def.items()))
 

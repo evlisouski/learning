@@ -11,7 +11,7 @@ menu = [
 
 
 class DataMixin:
-    paginate_by = 2
+    paginate_by = 5
 
 
     # метод создает контект для шаблона
