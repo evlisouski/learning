@@ -1,13 +1,13 @@
-from django.urls import path, re_path
-from django.views.decorators.cache import cache_page
+from django.urls import path
 
 from .views import *
+
+# from django.views.decorators.cache import cache_page
 
 urlpatterns = [
     # метод as_view() привязывает класс к представлению
     # использовать кеширование через каждые 10 сек
     # path('', cache_page(10)(WomenHome.as_view()), name='home'),
-
 
     path('', WomenHome.as_view(), name='home'),
     path('about/', about, name='about'),
