@@ -1,0 +1,1 @@
+cd "C:\home\foxexa\learning\Django\selfdu_DRF\drfsite"
