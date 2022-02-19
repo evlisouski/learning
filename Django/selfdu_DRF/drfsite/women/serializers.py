@@ -13,29 +13,39 @@ from .models import Women
 #         self.title = title
 #         self.content = content
 
-# сериализатор
+# Реализация сериализатора на основании ModelSerializer
+class WomenSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Women
+        fields = ("title", "content", "cat")
 
-class WomenSerializer(serializers.Serializer):
-    title = serializers.CharField(max_length=255)
-    content = serializers.CharField()
-    # read_only = True указывает что поля не обязательны для записи
-    time_create = serializers.DateTimeField(read_only=True)
-    time_update = serializers.DateTimeField(read_only=True)
-    is_published = serializers.BooleanField(default=True)
-    cat_id = serializers.IntegerField()
 
-    def create(self, validated_data):
-        return Women.objects.create(**validated_data)
 
-    # instance ссылка на объект модели Women
-    def update(self, instance, validated_data):
-        instance.title = validated_data.get("title", instance.title)
-        instance.content = validated_data.get("content", instance.content)
-        instance.time_update = validated_data.get("time_update", instance.time_update)
-        instance.is_published = validated_data.get("is_published", instance.is_published)
-        instance.cat_id = validated_data.get("cat_id", instance.cat_id)
-        instance.save()
-        return instance
+
+
+
+
+# class WomenSerializer(serializers.Serializer):
+#     title = serializers.CharField(max_length=255)
+#     content = serializers.CharField()
+#     # read_only = True указывает что поля не обязательны для записи
+#     time_create = serializers.DateTimeField(read_only=True)
+#     time_update = serializers.DateTimeField(read_only=True)
+#     is_published = serializers.BooleanField(default=True)
+#     cat_id = serializers.IntegerField()
+#
+#     def create(self, validated_data):
+#         return Women.objects.create(**validated_data)
+#
+#     # instance ссылка на объект модели Women
+#     def update(self, instance, validated_data):
+#         instance.title = validated_data.get("title", instance.title)
+#         instance.content = validated_data.get("content", instance.content)
+#         instance.time_update = validated_data.get("time_update", instance.time_update)
+#         instance.is_published = validated_data.get("is_published", instance.is_published)
+#         instance.cat_id = validated_data.get("cat_id", instance.cat_id)
+#         instance.save()
+#         return instance
 
 
 # # преобразование в модели в JSON строку
