@@ -8,6 +8,14 @@ from women.models import Women
 from women.serializers import WomenSerializer
 
 
+# ListCreateAPIView реализует GET/POST запросы
+class WomenAPIList(generics.ListCreateAPIView):
+    # ссылка на список записей возвращаемых клиенту
+    queryset = Women.objects.all()
+    # сериализатор, который применяется к queryset
+    serializer_class = WomenSerializer
+
+
 class WomenAPIView(APIView):
     def get(self, request):
         w = Women.objects.all()
