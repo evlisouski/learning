@@ -9,14 +9,13 @@ class Person:
 
     def __init__(self, fio, old, ps, weight):
         self.verify_fio(fio)
-        self.verify_old(old)
-        self.verify_weight(weight)
-        self.verify_ps(ps)
+        # Остальные проверки выполняются через ссылки в сеттерах
+
 
         self.__fio = fio.split()
-        self.__old = old
-        self.__passport = ps
-        self.__weight = weight
+        self.old = old
+        self.passport = ps
+        self.weight = weight
 
     @classmethod
     def verify_fio(cls, fio):
