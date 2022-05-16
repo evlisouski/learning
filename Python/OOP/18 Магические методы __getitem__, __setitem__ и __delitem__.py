@@ -24,6 +24,10 @@ class Student:
 
 
 s1 = Student("Eduard", [5, 6, 7, 9, 2])
+
 print(s1[2])
 s1[2] = 4
 print(s1[2])
+print(s1.marks)
+del s1[2]
+print(s1.marks)
