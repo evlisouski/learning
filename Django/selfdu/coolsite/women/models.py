@@ -13,6 +13,7 @@ class Women(models.Model):
     # внешний ключ для связи один к многим
     # ссылка в виде str 'Category' передается поскольку модель Category определяется после Women
     cat = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name="Категория")
+    cat_dfgr = models.ForeignKey('Category', on_delete=models.PROTECT, verbose_name="Категория")
 
     def __str__(self):
         return self.title

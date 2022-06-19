@@ -2,6 +2,7 @@ from django.forms import model_to_dict
 from rest_framework import generics
 from django.shortcuts import render
 from rest_framework.response import Response
+# от APIView наследуются все остальные классы представлений DRF
 from rest_framework.views import APIView
 
 from women.models import Women
@@ -16,6 +17,18 @@ class WomenAPIList(generics.ListCreateAPIView):
     serializer_class = WomenSerializer
 
 
+class WonenAPIUpdate(generics.UpdateAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
+
+
+class WomenAPIDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
+
+
+
+
 class WomenAPIView(APIView):
     def get(self, request):
         w = Women.objects.all()
@@ -23,6 +36,12 @@ class WomenAPIView(APIView):
         return Response({'posts': WomenSerializer(w, many=True).data})
 
     def post(self, request):
+        post_new = Women.objects.create(
+            title=request.data["title"],
+            content=request.data["content"],
+            cat_id=request.data["cat_id"]
+        )
+        return Response({"post": model_to_dict(post_new)})
         # создаём сериализатор на основании данных от POST запроса и распаковываем эти данные
         serializer = WomenSerializer(data=request.data)
         # проверяем корректность принятых данных
@@ -39,7 +58,6 @@ class WomenAPIView(APIView):
             instance = Women.objects.get(pk=pk)
         except:
             return Response({"error": "Object does not exists"})
-
         # Если получили ключ и запись по этому ключу, то создаем объект сериализатор
         # передаем request.data (данные, которые хотим изменить) и объект instance (запись которую мы хотим поменять)
         serializer = WomenSerializer(data=request.data, instance=instance)
@@ -51,28 +69,9 @@ class WomenAPIView(APIView):
         # отправляем клиенту данные, которые были изменены
         return Response({"post": serializer.data})
 
-            # post_new = Women.objects.create(
-        #     title=request.data['title'],
-        #     content=request.data['content'],
-        #     cat_id=request.data['cat_id']
-        # )
-
-
     def delete(self, request, *args, **kwargs):
         pk = kwargs.get("pk", None)
         if not pk:
             return Response({"error": "Method DELETE not allowed"})
-
         # код для удаления записи
-
         return Response({"post": "delete post" + str(pk)})
-
-
-
-
-
-# class WomenAPIView(generics.ListAPIView):
-#     queryset = Women.objects.all()
-#     serializer_class = WomenSerializer
-
-
