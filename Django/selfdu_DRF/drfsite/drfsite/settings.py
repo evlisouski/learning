@@ -131,7 +131,7 @@ REST_FRAMEWORK = {
     "DEFAULT_RENDERER_CLASSES": [
         'rest_framework.renderers.JSONRenderer',
         # запись отвечающая за GUI DRF в браузере
-        # 'rest_framework.renderers.BrowsableAPIRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
 
     ]
 }
