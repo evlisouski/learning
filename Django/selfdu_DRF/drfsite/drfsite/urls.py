@@ -45,16 +45,19 @@ class MyCustomRouter(routers.SimpleRouter):
 
 
 
-router = MyCustomRouter()
-# router = routers.DefaultRouter()
-# регистрируем класс WomenViewSet
-router.register(r'women', WomenViewSet, basename="women")
+# router = MyCustomRouter()
+# # router = routers.DefaultRouter()
+# # регистрируем класс WomenViewSet
+# router.register(r'women', WomenViewSet, basename="women")
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/v1/women/', WomenAPIList.as_view()),
+    path('api/v1/women/<int:pk>/', WomenAPIUpdate.as_view()),
+    path('api/v1/womendelete/<int:pk>/', WomenAPIDDestroy.as_view()),
     # path('api/v1/womenlist/', WomenViewSet.as_view({"get": "list"})),
     # path('api/v1/womenlist/<int:pk>/', WomenViewSet.as_view({"put": "update"})),
-    path('api/v1/', include(router.urls)), # http://127.0.0.0.1:8000/api/v1/women
+    # path('api/v1/', include(router.urls)), # http://127.0.0.0.1:8000/api/v1/women
 
 ]

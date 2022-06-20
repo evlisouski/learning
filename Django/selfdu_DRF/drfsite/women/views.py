@@ -2,38 +2,63 @@ from django.forms import model_to_dict
 from rest_framework import generics, viewsets
 from django.shortcuts import render
 from rest_framework.decorators import action
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
 from rest_framework.response import Response
 # от APIView наследуются все остальные классы представлений DRF
 from rest_framework.views import APIView
 
 from women.models import Women, Category
+from women.permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 from women.serializers import WomenSerializer
 
 
-class WomenViewSet(viewsets.ModelViewSet):
+# возвращает список статей
+class WomenAPIList(generics.ListCreateAPIView):
+    # ссылка на список записей возвращаемых клиенту
+    queryset = Women.objects.all()
+    # сериализатор, который применяется к queryset
+    serializer_class = WomenSerializer
+    # Ограничение доступа
+    permission_classes = (IsAuthenticatedOrReadOnly, )
+
+
+# меняет определенную запись
+class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
-
-
-    def get_queryset(self):
-        pk = self.kwargs.get("pk")
-
-        if not pk:
-            return Women.objects.all()[:3]
-
-        # filter возвращает список из одного значения, как этого требует get_queryset
-        return Women.objects.filter(pk=pk)
-
-    # поддерживаемые методы ["get"]
-    @action(methods=["get"], detail=True )
-    def category(self, request, pk=None):
-        cats = Category.objects.get(pk=pk)
-        return Response({"cats": cats.name})
+    permission_classes = (IsOwnerOrReadOnly, )
 
 
 
+class WomenAPIDDestroy(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Women.objects.all()
+    serializer_class = WomenSerializer
+    # кастомный класс для просмотра записей всем, а удалять может только админ
+    permission_classes = (IsAdminOrReadOnly, )
 
-#region ВАРИАНТ 2. Представления на основании классов представлений
+# region ВАРИАНТ 3.
+# class WomenViewSet(viewsets.ModelViewSet):
+#     queryset = Women.objects.all()
+#     serializer_class = WomenSerializer
+#
+#
+#     def get_queryset(self):
+#         pk = self.kwargs.get("pk")
+#
+#         if not pk:
+#             return Women.objects.all()[:3]
+#
+#         # filter возвращает список из одного значения, как этого требует get_queryset
+#         return Women.objects.filter(pk=pk)
+#
+#     # поддерживаемые методы ["get"]
+#     @action(methods=["get"], detail=True )
+#     def category(self, request, pk=None):
+#         cats = Category.objects.get(pk=pk)
+#         return Response({"cats": cats.name})
+# endregion
+
+# region ВАРИАНТ 2. Представления на основании классов представлений
 # # ListCreateAPIView реализует GET/POST запросы
 # class WomenAPIList(generics.ListCreateAPIView):
 #     # ссылка на список записей возвращаемых клиенту
@@ -51,7 +76,7 @@ class WomenViewSet(viewsets.ModelViewSet):
 #     queryset = Women.objects.all()
 #     serializer_class = WomenSerializer
 
-#region ВАРИАНТ 1. Использование WomenAPIView
+# region ВАРИАНТ 1. Использование WomenAPIView
 # class WomenAPIView(APIView):
 #     def get(self, request):
 #         w = Women.objects.all()
@@ -98,4 +123,4 @@ class WomenViewSet(viewsets.ModelViewSet):
 #             return Response({"error": "Method DELETE not allowed"})
 #         # код для удаления записи
 #         return Response({"post": "delete post" + str(pk)})
-#endregion
+# endregion

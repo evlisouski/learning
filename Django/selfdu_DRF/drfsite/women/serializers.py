@@ -7,13 +7,15 @@ from rest_framework.parsers import JSONParser
 from rest_framework.renderers import JSONRenderer
 
 
-class WomenModel:
-    def __init__(self, title, content):
-        # локальные имена должны совпадать с именами класса-серриализатора
-        self.title = title
-        self.content = content
+# class WomenModel:
+#     def __init__(self, title, content):
+#         # локальные имена должны совпадать с именами класса-серриализатора
+#         self.title = title
+#         self.content = content
 
 class WomenSerializer(serializers.ModelSerializer):
+    # атрибут user из модели который ссылается на текущего авторизированного пользователя
+    user = serializers.HiddenField(default=serializers.CurrentUserDefault())
     class Meta:
         # указываем модель, с которой работаем
         model = Women
