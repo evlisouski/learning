@@ -19,9 +19,36 @@ from rest_framework import routers
 
 from women.views import *
 
-router = routers.SimpleRouter()
+class MyCustomRouter(routers.SimpleRouter):
+    routes = [
+        # routers - список из наших статей
+        routers.Route(
+            # шаблон маршрута
+            url=r'^{prefix}$',
+            # связывает тип запроса с соответствующим методом ViewSet
+            mapping={'get': 'list'},
+            # название маршрута
+            name='{basename}-list',
+            # список или отдельная записи
+            detail=False,
+            # дополнительные аргументы для kwarg, которые передаются конкретному определению
+            initkwargs={'suffix': 'List'}
+        ),
+        # читает статью по ее идентификатору
+        routers.Route(
+            url=r'^{prefix}/{lookup}$',
+            mapping={'get': 'retrieve'},
+            name='{basename}-detail',
+            detail=True,
+            initkwargs={'suffix': 'Detail'}
+        ),]
+
+
+
+router = MyCustomRouter()
+# router = routers.DefaultRouter()
 # регистрируем класс WomenViewSet
-router.register(r'women', WomenViewSet)
+router.register(r'women', WomenViewSet, basename="women")
 
 
 urlpatterns = [

@@ -1,17 +1,37 @@
 from django.forms import model_to_dict
 from rest_framework import generics, viewsets
 from django.shortcuts import render
+from rest_framework.decorators import action
 from rest_framework.response import Response
 # от APIView наследуются все остальные классы представлений DRF
 from rest_framework.views import APIView
 
-from women.models import Women
+from women.models import Women, Category
 from women.serializers import WomenSerializer
 
 
 class WomenViewSet(viewsets.ModelViewSet):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
+
+
+    def get_queryset(self):
+        pk = self.kwargs.get("pk")
+
+        if not pk:
+            return Women.objects.all()[:3]
+
+        # filter возвращает список из одного значения, как этого требует get_queryset
+        return Women.objects.filter(pk=pk)
+
+    # поддерживаемые методы ["get"]
+    @action(methods=["get"], detail=True )
+    def category(self, request, pk=None):
+        cats = Category.objects.get(pk=pk)
+        return Response({"cats": cats.name})
+
+
+
 
 #region ВАРИАНТ 2. Представления на основании классов представлений
 # # ListCreateAPIView реализует GET/POST запросы
