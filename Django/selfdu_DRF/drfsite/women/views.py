@@ -1,8 +1,10 @@
 from django.forms import model_to_dict
 from rest_framework import generics, viewsets
 from django.shortcuts import render
+from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser
+from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser, \
+    IsAuthenticated
 from rest_framework.response import Response
 # от APIView наследуются все остальные классы представлений DRF
 from rest_framework.views import APIView
@@ -26,7 +28,10 @@ class WomenAPIList(generics.ListCreateAPIView):
 class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
-    permission_classes = (IsOwnerOrReadOnly, )
+    # permission_classes = (IsOwnerOrReadOnly, )
+    permission_classes = (IsAuthenticated, )
+    # конкретизация авторизации, в данном случае только по токенам
+    authentication_classes = (TokenAuthentication,)
 
 
 

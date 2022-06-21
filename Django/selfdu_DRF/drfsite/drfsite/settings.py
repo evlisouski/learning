@@ -40,6 +40,8 @@ INSTALLED_APPS = [
     'women.apps.WomenConfig',
     # регистрация приложения DRF в django
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -132,11 +134,17 @@ REST_FRAMEWORK = {
         'rest_framework.renderers.JSONRenderer',
         # запись отвечающая за GUI DRF в браузере
         'rest_framework.renderers.BrowsableAPIRenderer',
-    # ],
+
+    ],
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
     # "DEFAULT_PERMISSION_CLASSES": [
     #     # доступ только для авторизованых пользователей
     #     # "rest_framework.permissions.IsAuthenticated",
     #     # # доступ всем
     #     # "rest_framework.permissions.AllowAny"
-    ]
+    # ]
 }
