@@ -3,6 +3,7 @@ from rest_framework import generics, viewsets
 from django.shortcuts import render
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.decorators import action
+from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAdminUser, \
     IsAuthenticated
 from rest_framework.response import Response
@@ -13,6 +14,17 @@ from women.models import Women, Category
 from women.permissions import IsAdminOrReadOnly, IsOwnerOrReadOnly
 from women.serializers import WomenSerializer
 
+# собственный класс пагинации
+class WomenAPIListPagination(PageNumberPagination):
+    page_size = 3
+
+    # параметр page_size_query_param определяет параметр, в котором пользователь может
+    # указать в get запросе желаемое кол-во записей
+    page_size_query_param = "page_size"
+    # параметр для get запроса, определяющий максимальное число которое клиент может указать в
+    # get запросе вида: http://127.0.0.1:8000/api/v1/women/?page=2&page_size=4
+    max_page_size = 10000
+
 
 # возвращает список статей
 class WomenAPIList(generics.ListCreateAPIView):
@@ -21,7 +33,9 @@ class WomenAPIList(generics.ListCreateAPIView):
     # сериализатор, который применяется к queryset
     serializer_class = WomenSerializer
     # Ограничение доступа
-    permission_classes = (IsAuthenticatedOrReadOnly, )
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    # определяем класс пагинации для данного представления
+    pagination_class = WomenAPIListPagination
 
 
 # меняет определенную запись
@@ -29,17 +43,16 @@ class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
     # permission_classes = (IsOwnerOrReadOnly, )
-    permission_classes = (IsAuthenticated, )
+    permission_classes = (IsAuthenticated,)
     # конкретизация авторизации, в данном случае только по токенам
     # authentication_classes = (TokenAuthentication,)
-
 
 
 class WomenAPIDDestroy(generics.RetrieveUpdateDestroyAPIView):
     queryset = Women.objects.all()
     serializer_class = WomenSerializer
     # кастомный класс для просмотра записей всем, а удалять может только админ
-    permission_classes = (IsAdminOrReadOnly, )
+    permission_classes = (IsAdminOrReadOnly,)
 
 # region ВАРИАНТ 3.
 # class WomenViewSet(viewsets.ModelViewSet):
