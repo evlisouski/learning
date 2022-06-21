@@ -31,7 +31,7 @@ class WomenAPIUpdate(generics.RetrieveUpdateAPIView):
     # permission_classes = (IsOwnerOrReadOnly, )
     permission_classes = (IsAuthenticated, )
     # конкретизация авторизации, в данном случае только по токенам
-    authentication_classes = (TokenAuthentication,)
+    # authentication_classes = (TokenAuthentication,)
 
 
 
