@@ -1,4 +1,4 @@
-<h1 align="center">!Learning Repository!</h1>
+<h1 align="center">Learning Repository</h1>
 
 <h3 align="center" style="line-height: 1.5">This repository contains practice projects that do not claim to be correct.
 I have made this repository public so that I can easily link to some of the files in this repository.</h3>
