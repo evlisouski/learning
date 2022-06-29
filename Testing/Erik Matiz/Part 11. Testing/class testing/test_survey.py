@@ -5,11 +5,16 @@ from survey import AnonymousSurvey
 class TestAnonymousSurvey(unittest.TestCase):
     """Тесты для класса AnonymousSurvey"""
 
-    def setUp(self):
+    def setUp(self):  # Запускается перед каждым тестом
         """Создание опроса и набора ответов для всех тестовых методов."""
         question = "What language did you first learn to speak?"
         self.my_survey = AnonymousSurvey(question)
         self.responses = ["English", "Spanish", "Mandarin"]
+        print("I am setUP!")
+
+    def tearDown(self):
+        """Выполнит код после каждого теста"""
+        print(f"I am tearDown!, test")
 
     def test_store_single_response(self):
         """Проверяет, что один ответ сохранен правильно."""
