@@ -71,3 +71,319 @@ DevTools listening on ws://localhost:59877/devtools/browser/3db2a5db-2681-47fe-9
 1657046255866	Marionette	INFO	Stopped listening on port 38055
 Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
 console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657052000210	geckodriver	INFO	Listening on 127.0.0.1:43375
+1657052000215	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "38879" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilemj4D1Q"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052001782	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:38879
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilemj4D1Q/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052004805	Marionette	INFO	Listening on port 39745
+DevTools listening on ws://localhost:38879/devtools/browser/d63ccad9-2dff-4959-807f-f162cf995add
+Read port: 39745
+1657052004859	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1657052076646	geckodriver	INFO	Listening on 127.0.0.1:35959
+1657052076650	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40661" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileSNpHyH"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052078193	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:40661
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileSNpHyH/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052081891	Marionette	INFO	Listening on port 44041
+DevTools listening on ws://localhost:40661/devtools/browser/d183a3e0-4726-441d-89b0-8ffa84ed8c8e
+Read port: 44041
+1657052082048	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657052082463	Marionette	INFO	Stopped listening on port 44041
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657052361262	geckodriver	INFO	Listening on 127.0.0.1:53195
+1657052361266	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "60595" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileqQVDWu"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052362759	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:60595
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileqQVDWu/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052364097	Marionette	INFO	Listening on port 44985
+DevTools listening on ws://localhost:60595/devtools/browser/d7472f1e-ff8d-4138-8224-88d5db5dcc8d
+Read port: 44985
+1657052364215	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657052364462	Marionette	INFO	Stopped listening on port 44985
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657052394959	geckodriver	INFO	Listening on 127.0.0.1:33477
+1657052394963	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44177" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileQoo3tE"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052396229	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:44177
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileQoo3tE/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052397528	Marionette	INFO	Listening on port 37191
+DevTools listening on ws://localhost:44177/devtools/browser/2aaa2aba-6776-4d79-abf9-9cb0ac350320
+Read port: 37191
+1657052397594	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657052397919	Marionette	INFO	Stopped listening on port 37191
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657052462919	geckodriver	INFO	Listening on 127.0.0.1:43869
+1657052462922	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "34373" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileB4b6Dn"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052464433	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:34373
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileB4b6Dn/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052465815	Marionette	INFO	Listening on port 46493
+Read port: 46493
+1657052465889	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:34373/devtools/browser/0526548d-1f1f-429b-9ade-c55a91f2300a
+1657052466072	Marionette	INFO	Stopped listening on port 46493
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+1657052604179	geckodriver	INFO	Listening on 127.0.0.1:55561
+1657052604185	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "53693" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile8aUC9Y"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052605609	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:53693
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile8aUC9Y/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052606969	Marionette	INFO	Listening on port 34261
+Read port: 34261
+1657052607076	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657052607277	Marionette	INFO	Stopped listening on port 34261
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657052607364	CDP	WARN	Failed to remove undefined (Could not parse path (undefined): NS_ERROR_FILE_UNRECOGNIZED_PATH)
+
+###!!! [Parent][PBackgroundParent] Error: RunMessage(msgname=PRemoteWorkerService::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+1657052701738	geckodriver	INFO	Listening on 127.0.0.1:60933
+1657052702242	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "40021" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofiletrWZDW"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052703790	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:40021
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofiletrWZDW/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052705295	Marionette	INFO	Listening on port 37523
+DevTools listening on ws://localhost:40021/devtools/browser/fd447113-6fa4-4c16-8999-ba3b29f66aaf
+Read port: 37523
+1657052705395	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657052705654	Marionette	INFO	Stopped listening on port 37523
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1657052792030	geckodriver	INFO	Listening on 127.0.0.1:42101
+1657052792033	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "60415" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileTilkZm"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052793484	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:60415
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileTilkZm/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052794715	Marionette	INFO	Listening on port 46413
+DevTools listening on ws://localhost:60415/devtools/browser/a2f75fb0-97dc-469b-8432-b64e4acb93f0
+Read port: 46413
+1657052794762	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657052794884	Marionette	INFO	Stopped listening on port 46413
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1657052817640	geckodriver	INFO	Listening on 127.0.0.1:37339
+1657052817644	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "54877" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileLtbqlq"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052819168	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:54877
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileLtbqlq/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052820533	Marionette	INFO	Listening on port 36303
+Read port: 36303
+1657052820613	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:54877/devtools/browser/689104b4-b6c8-4f09-9fe1-8314fbf1f756
+1657052820890	Marionette	INFO	Stopped listening on port 36303
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657052905550	geckodriver	INFO	Listening on 127.0.0.1:37137
+1657052905553	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "60339" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilebY2zFH"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657052907027	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:60339
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilebY2zFH/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657052908751	Marionette	INFO	Listening on port 39037
+Read port: 39037
+1657052908866	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:60339/devtools/browser/3a50eb6a-0203-4842-b703-022b1487b62f
+1657052909297	Marionette	INFO	Stopped listening on port 39037
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+console.error: services.settings: 
+  main/query-stripping Signature failed  TypeError: NetworkError: Network request failed
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PBackgroundParent] Error: RunMessage(msgname=PRemoteWorkerService::Msg___delete__) Channel closing: too late to send/recv, messages will be lost
+
+1657053006918	geckodriver	INFO	Listening on 127.0.0.1:56793
+1657053006925	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "41601" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilefsNY0x"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053008648	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:41601
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilefsNY0x/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053010187	Marionette	INFO	Listening on port 34145
+DevTools listening on ws://localhost:41601/devtools/browser/f02e9acc-ff49-464d-ada0-5adcc031a92d
+Read port: 34145
+1657053010305	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657053010529	Marionette	INFO	Stopped listening on port 34145
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657053081355	geckodriver	INFO	Listening on 127.0.0.1:46911
+1657053081359	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "48389" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileY9ppdS"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053083000	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:48389
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileY9ppdS/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053084572	Marionette	INFO	Listening on port 43869
+Read port: 43869
+1657053084614	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:48389/devtools/browser/a83cda2a-e104-476d-a1f9-5c967942e2ed
+1657053085929	Marionette	INFO	Stopped listening on port 43869
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657053108338	geckodriver	INFO	Listening on 127.0.0.1:52413
+1657053108344	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "46917" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile3Gq9ST"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053109870	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:46917
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile3Gq9ST/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053111182	Marionette	INFO	Listening on port 35989
+Read port: 35989
+1657053111307	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:46917/devtools/browser/933f65d6-24c2-4990-aba6-1e90b9be75c2
+1657053112562	Marionette	INFO	Stopped listening on port 35989
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+1657053169944	geckodriver	INFO	Listening on 127.0.0.1:42711
+1657053169951	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "54597" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofile6R8cMs"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053172015	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:54597
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofile6R8cMs/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053173419	Marionette	INFO	Listening on port 39911
+DevTools listening on ws://localhost:54597/devtools/browser/750d35d1-7ccc-4d41-8aad-a701beb82892
+Read port: 39911
+1657053173504	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657053174788	Marionette	INFO	Stopped listening on port 39911
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1657053225247	geckodriver	INFO	Listening on 127.0.0.1:56531
+1657053225257	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44029" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileOa3arm"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053226778	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:44029
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileOa3arm/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053227995	Marionette	INFO	Listening on port 45501
+DevTools listening on ws://localhost:44029/devtools/browser/a5a0f412-f997-4de5-b64b-ae0ed0d13095
+Read port: 45501
+1657053228090	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657053229523	Marionette	INFO	Stopped listening on port 45501
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+1657053271652	geckodriver	INFO	Listening on 127.0.0.1:52063
+1657053272155	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "45139" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileCPfy1k"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053274191	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:45139
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileCPfy1k/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053275597	Marionette	INFO	Listening on port 34447
+Read port: 34447
+DevTools listening on ws://localhost:45139/devtools/browser/bc857a92-4c57-498e-8e28-760080241a04
+1657053275677	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657053276947	Marionette	INFO	Stopped listening on port 34447
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+1657053377342	geckodriver	INFO	Listening on 127.0.0.1:52245
+1657053377347	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "55177" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilehX4N01"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053379076	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:55177
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilehX4N01/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053380476	Marionette	INFO	Listening on port 34333
+Read port: 34333
+1657053380546	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:55177/devtools/browser/a06a2e88-f556-4eb4-bb7f-20c5de2058ca
+1657053381823	Marionette	INFO	Stopped listening on port 34333
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1657053394365	geckodriver	INFO	Listening on 127.0.0.1:44827
+1657053394368	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44941" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileKh9xGh"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053395970	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:44941
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileKh9xGh/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053397345	Marionette	INFO	Listening on port 38811
+Read port: 38811
+1657053397450	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:44941/devtools/browser/d3bc202b-cc4a-4777-b12f-dfc6199dfdb5
+1657053398734	Marionette	INFO	Stopped listening on port 38811
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
+1657053492326	geckodriver	INFO	Listening on 127.0.0.1:40529
+1657053492330	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "44635" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofilelv7yCd"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053493789	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:44635
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofilelv7yCd/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053495246	Marionette	INFO	Listening on port 34205
+Read port: 34205
+1657053495294	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+DevTools listening on ws://localhost:44635/devtools/browser/24af480f-b3c7-456e-8a59-e9a149c48cb3
+1657053496517	Marionette	INFO	Stopped listening on port 34205
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+1657053508130	geckodriver	INFO	Listening on 127.0.0.1:52389
+1657053508134	mozrunner::runner	INFO	Running command: "/usr/bin/firefox" "--marionette" "--remote-debugging-port" "46893" "--remote-allow-hosts" "localhost" "-no-remote" "-profile" "/tmp/rust_mozprofileF6sbBb"
+ATTENTION: default value of option mesa_glthread overridden by environment.
+1657053509750	Marionette	INFO	Marionette enabled
+WebDriver BiDi listening on ws://localhost:46893
+console.warn: SearchSettings: "get: No settings file exists, new profile?" (new NotFoundError("Could not open the file at /tmp/rust_mozprofileF6sbBb/search.json.mozlz4", (void 0)))
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+1657053511191	Marionette	INFO	Listening on port 44697
+DevTools listening on ws://localhost:46893/devtools/browser/a240fac0-2e69-47cb-914f-eb6a232a5dd1
+Read port: 44697
+1657053511275	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1657053512531	Marionette	INFO	Stopped listening on port 44697
+Missing chrome or resource URL: resource://gre/modules/UpdateListener.jsm
+console.error: "Error during quit-application-granted: [Exception... \"File error: Not found\"  nsresult: \"0x80520012 (NS_ERROR_FILE_NOT_FOUND)\"  location: \"JS frame :: resource:///modules/BrowserGlue.jsm :: _onQuitApplicationGranted/tasks< :: line 1969\"  data: no]"
+JavaScript error: resource://gre/modules/TerminatorTelemetry.jsm, line 71: AbortError: IOUtils: Shutting down and refusing additional I/O tasks
+
+###!!! [Parent][PImageBridgeParent] Error: RunMessage(msgname=PImageBridge::Msg_WillClose) Channel closing: too late to send/recv, messages will be lost
+
